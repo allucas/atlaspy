@@ -13,7 +13,7 @@ def download_files():
     zip_url = 'http://dl.dropboxusercontent.com/scl/fi/a7usav2cmyyskdb339pzu/stls_v2.zip?dl=0&rlkey=3zxd59bginwkkvnte1ojrzfk2'
 
     # Create the target directory if it doesn't exist
-    stl_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'source_data/atlases/')
+    stl_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'atlaspy/source_data/atlases/')
     os.makedirs(stl_dir, exist_ok=True)
 
     # Download the ZIP file

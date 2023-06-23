@@ -1,1 +1,1 @@
-recursive-include source_data *
+recursive-include atlaspy/source_data *
