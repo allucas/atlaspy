@@ -104,9 +104,10 @@ def create_3d_model_from_stls(atlas_name, df_values):
         if idx not in exclude_list:
 
             #pv_dict[file.split('.')[0]] = pv.read(os.path.join(stl_dir, file))
-            roi = pv.read(file)
-            roi.point_data['Segmentation'] = roi_val
-            pv_list.append(roi)
+            if os.path.exists(file):
+                roi = pv.read(file)
+                roi.point_data['Segmentation'] = roi_val
+                pv_list.append(roi)
 
 
     a = pv_list[0]
