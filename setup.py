@@ -48,8 +48,9 @@ setup(
     author='Alfredo Lucas',
     author_email='alfredo1238@gmail.com',
     packages=find_packages(),
-    #package_data={'atlaspy': ["source_data/*"]},
     include_package_data=True,
+    package_data={'atlaspy.source_data': ["*"]},
+
     install_requires=['pyvista', 'seaborn', 'pandas', 'matplotlib', 'nibabel', 'nilearn'],
     cmdclass={
         'install': PostInstallCommand,
