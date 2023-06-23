@@ -24,7 +24,7 @@ def load_atlas_stls(atlas_name):
     # Determine the base directory of the package
     base_dir = os.path.dirname(current_file)
 
-    stl_dir = os.path.join(base_dir, 'source_data','atlases','stls', atlas_name + '_stls')
+    stl_dir = os.path.join(base_dir, '../source_data','atlases','stls', atlas_name + '_stls')
 
     stl_files = os.listdir(stl_dir) 
 
