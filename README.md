@@ -36,7 +36,7 @@ For plotting values from a CSV file or a dataframe, the columns of the CSV must 
 ```
 import atlaspy.core as apy
 import pandas as pd
-df_values = pd.load_csv('examples/cortical_thickness_dkt.csv')
+df_values = pd.read_csv('examples/cortical_thickness_dkt.csv')
 apy.plot_rois_atlas_lrt('dkt', df_values, cmap='Set3')
 ```
 

@@ -85,7 +85,15 @@ def create_3d_model_from_stls(atlas_name, df_values):
     else:
         exclude_list = []
 
-    stl_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'source_data','atlases','stls', atlas_name + '_stls')
+
+
+    # Get the absolute path to the current file
+    current_file = os.path.abspath(__file__)
+
+    # Determine the base directory of the package
+    base_dir = os.path.dirname(current_file)
+
+    stl_dir = os.path.join(base_dir, '../source_data','atlases','stls', atlas_name + '_stls')
 
     stl_files = list(map(lambda x: os.path.join(stl_dir,get_stl_from_index(atlas_name,x)), atlas_indices))
 
@@ -205,7 +213,14 @@ def plot_left_right_subcortex_model(brain_model, cmap=None, vmin=None, vmax=None
 
 
 def get_dataframe_from_nifti(atlas_name, nifti_path):
-    atlas_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'source_data','atlases','niftis', +atlas_name+'.nii.gz')
+
+        # Get the absolute path to the current file
+    current_file = os.path.abspath(__file__)
+
+    # Determine the base directory of the package
+    base_dir = os.path.dirname(current_file)
+
+    atlas_dir = os.path.join(base_dir, '../source_data','atlases','niftis', +atlas_name+'.nii.gz')
 
     nii_data = nib.load(nifti_path).get_fdata()
     nii_atlas = nib.load(atlas_dir).get_fdata()
