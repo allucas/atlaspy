@@ -43,7 +43,7 @@ for scheme in INSTALL_SCHEMES.values():
 
 setup(
     name='atlaspy',
-    version='0.0.7',
+    version='0.0.13',
     description='Python library for working with brain atlases',
     author='Alfredo Lucas',
     author_email='alfredo1238@gmail.com',

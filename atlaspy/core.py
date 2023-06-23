@@ -9,11 +9,65 @@ import nibabel as nib
 import numpy as np
 import requests
 from nilearn.image import resample_to_img
+import requests
+import zipfile
 
 # dictionary of subcortical regions per atlas
 subcortical_dict = {'ho':[8058,2010,2049,3011,3050,4012,4051,5013,5052,6017,6053,6317,6357,6367,6394,7018,7054,7358,7395,8026],
                     'dkt':[17,18,10,11,12,13,49,50,51,52,53,54],
                     'aal':[4101,4102,4201,4202,7001,7002,7011,7012,7021,7022,7101,7102]}
+
+
+def check_for_stls():
+
+
+
+
+    def download_files():
+
+        # Get the absolute path to the current file
+        current_file = os.path.abspath(__file__)
+
+        # Determine the base directory of the package
+        base_dir = os.path.dirname(current_file)
+
+        stl_dir = os.path.join(base_dir, 'source_data','atlases')
+
+        # Define the URL from which to download the files
+
+        # v1: zip_url = 'http://dl.dropboxusercontent.com/scl/fi/s88fszf6t1q6ef4znl6cr/stls.zip?dl=0&rlkey=j93ehij42d3g0rp1hqn9u0f5t'
+        zip_url = 'http://dl.dropboxusercontent.com/scl/fi/a7usav2cmyyskdb339pzu/stls_v2.zip?dl=0&rlkey=3zxd59bginwkkvnte1ojrzfk2'
+
+        # Create the target directory if it doesn't exist
+        os.makedirs(stl_dir, exist_ok=True)
+
+        # Download the ZIP file
+        zip_path = os.path.join(stl_dir, 'stls.zip')
+        response = requests.get(zip_url)
+        with open(zip_path, 'wb') as file:
+            file.write(response.content)
+
+        # Extract the STL files from the ZIP file preserving folder structure
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(stl_dir)
+
+        # Remove the downloaded ZIP file
+        os.remove(zip_path)
+    
+    # Get the absolute path to the current file
+    current_file = os.path.abspath(__file__)
+
+    # Determine the base directory of the package
+    base_dir = os.path.dirname(current_file)
+    stl_dir = os.path.join(base_dir, 'source_data','atlases','stls')
+
+    if os.path.exists(stl_dir)==False:
+        print('Downloading and extracting STL files needed for plotting...')
+        download_files()
+
+    
+
+
 
 
 def load_atlas_stls(atlas_name):
@@ -31,6 +85,8 @@ def load_atlas_stls(atlas_name):
     - The function returns a list of paths to the STL files within that directory.
     """
     
+    # Check for STLs
+    check_for_stls()
 
     # Get the absolute path to the current file
     current_file = os.path.abspath(__file__)
@@ -152,6 +208,10 @@ def create_3d_model_from_stls(atlas_name, df_values):
     - The 'df_values' DataFrame should also contain the 'roi_value' column with the ROI values for each index.
     - An optional 'exclude' column in the DataFrame can be used to exclude specific indices from the model.
     """
+
+    # check for stls
+    check_for_stls()
+
 
     atlas_indices = df_values['atlas_index'].values
     roi_values = df_values['roi_value'].values

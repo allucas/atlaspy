@@ -4,17 +4,8 @@
 
 To install:
 
-First clone this repository.
-
 ```
-git clone https://github.com/allucas/atlaspy.git
-```
-
-Within the repository folder on the terminal type:
-
-```
-python3 setup.py sdist bdist_wheel
-pip3 install dist/atlaspy-0.0.7.tar.gz
+pip install atlaspy
 ```
 
 You should be able to use atlaspy after that.
