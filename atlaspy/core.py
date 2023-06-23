@@ -18,8 +18,13 @@ subcortical_dict = {'ho':[8058,2010,2049,3011,3050,4012,4051,5013,5052,6017,6053
 def load_atlas_stls(atlas_name):
 
     # this function returns the path to the stls for a given atlas
+    # Get the absolute path to the current file
+    current_file = os.path.abspath(__file__)
 
-    stl_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'source_data','atlases','stls', atlas_name + '_stls')
+    # Determine the base directory of the package
+    base_dir = os.path.dirname(current_file)
+
+    stl_dir = os.path.join(base_dir, 'source_data','atlases','stls', atlas_name + '_stls')
 
     stl_files = os.listdir(stl_dir) 
 
