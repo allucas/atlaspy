@@ -4,13 +4,14 @@ import os
 import requests
 import zipfile
 import atexit
+from distutils.command.install import INSTALL_SCHEMES
 
 def download_files():
     # Define the URL from which to download the files
 
     # v1: zip_url = 'http://dl.dropboxusercontent.com/scl/fi/s88fszf6t1q6ef4znl6cr/stls.zip?dl=0&rlkey=j93ehij42d3g0rp1hqn9u0f5t'
     zip_url = 'http://dl.dropboxusercontent.com/scl/fi/a7usav2cmyyskdb339pzu/stls_v2.zip?dl=0&rlkey=3zxd59bginwkkvnte1ojrzfk2'
-    
+
     # Create the target directory if it doesn't exist
     stl_dir = os.path.join(os.path.dirname(os.path.abspath(__name__)), 'source_data/atlases/')
     os.makedirs(stl_dir, exist_ok=True)
@@ -42,7 +43,7 @@ setup(
     author='Alfredo Lucas',
     author_email='alfredo1238@gmail.com',
     packages=find_packages(),
-    package_data={'atlaspy': ["source_data/*"]},
+    #package_data={'atlaspy': ["source_data/*"]},
     include_package_data=True,
     install_requires=['pyvista', 'seaborn', 'pandas', 'matplotlib', 'nibabel', 'nilearn'],
     cmdclass={
