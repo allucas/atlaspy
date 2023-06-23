@@ -10,10 +10,9 @@ First clone this repository.
 git clone https://github.com/allucas/atlaspy.git
 ```
 
-Then access repository folder on the terminal and type:
+Within the repository folder on the terminal type:
 
 ```
-cd atlaspy
 python3 setup.py sdist bdist_wheel
 pip3 install dist/atlaspy-0.0.7.tar.gz
 ```
