@@ -42,7 +42,7 @@ setup(
     packages=find_packages(),
     package_data={'atlaspy': ["source_data/*"]},
     include_package_data=True,
-    install_requires=['pyvista', 'seaborn', 'pandas', 'matplotlib', 'nibabel'],
+    install_requires=['pyvista', 'seaborn', 'pandas', 'matplotlib', 'nibabel', 'nilearn'],
     cmdclass={
         'install': PostInstallCommand,
     },
