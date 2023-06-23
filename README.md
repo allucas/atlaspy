@@ -22,8 +22,23 @@ You should be able to use atlaspy after that.
 
 ## Examples
 
-Examples of usage are available in [this](https://colab.research.google.com/drive/1TnQqMrs-YRmkih3izX1JIi9lcZ_tTsBJ?usp=sharing) Google Colab
+### Plotting the DKT Atlas
 
+```
+import atlaspy.core as apy
+apy.plot_raw_atlas_left_right('dkt', cmap='Set3')
+```
+
+### Plotting the DKT Atlas with custom values
+
+For plotting values from a CSV file or a dataframe, the columns of the CSV must include `atlas_index`, which is the number assigned to the ROI of each atlas, and `roi_value`, which is the values that we would like to plot at that brain region. The atlases used are included in `source_data/atlases/niftis` and their region assignments in `source_data/atlases/luts`. An example input CSV is included in `examples/cortical_thickness_dkt.csv`. To visualize this example use the code below:
+
+```
+import atlaspy.core as apy
+import pandas as pd
+df_values = pd.load_csv('examples/cortical_thickness_dkt.csv')
+apy.plot_rois_atlas_lrt('dkt', df_values, cmap='Set3')
+```
 
 
 
