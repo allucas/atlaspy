@@ -36,6 +36,11 @@ class PostInstallCommand(install):
         super().__init__(*args, **kwargs)
         atexit.register(download_files)
 
+# Modify the data install dir to match the source install dir
+for scheme in INSTALL_SCHEMES.values():
+    scheme['data'] = scheme['purelib']
+
+
 setup(
     name='atlaspy',
     version='0.0.7',
