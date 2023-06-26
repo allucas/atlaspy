@@ -8,7 +8,7 @@ from distutils.command.install import INSTALL_SCHEMES
 
 setup(
     name='atlaspy',
-    version='0.0.14',
+    version='0.0.15',
     description='Python library for working with brain atlases',
     author='Alfredo Lucas',
     author_email='alfredo1238@gmail.com',
