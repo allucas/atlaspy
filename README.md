@@ -1,5 +1,11 @@
 # ATLASpy: A python library for visualizing volumetric brain data
 
+## Citation
+
+If you use this pipeline on your work, please cite us:
+
+Alfredo Lucas, & Kathryn A. Davis. (2023). ATLASpy: A python library for visualizing volumetric brain data. Zenodo. https://doi.org/10.5281/zenodo.8083548
+
 ## Installation
 
 To install:
