@@ -12,11 +12,15 @@ You should be able to use atlaspy after that.
 
 ## Examples
 
+Detailed examples of using ATLASpy can be found here: https://github.com/allucas/atlaspy/blob/main/examples/atlaspy_examples_v2.ipynb
+
+ATLASpy is not restricted to the default atlases included, but it can use any atlas as long as STL files are available for it. See here for instructions on how to generate these STL files: https://github.com/allucas/atlaspy/tree/main/examples/custom_atlas_readme.md
+
 ### Plotting the DKT Atlas
 
 ```
 import atlaspy.core as apy
-apy.plot_raw_atlas_left_right('dkt', cmap='Set3')
+apy.plot_raw_atlas_lrt('dkt', cmap='Set3')
 ```
 
 This will plot the DKT atlas with random coloring for each ROI 
