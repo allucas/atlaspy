@@ -486,23 +486,28 @@ def plot_left_right_top_brain_atlas_model(brain_model, cmap=None, vmin=None, vma
     pv.global_theme.font.color = 'black'
 
     pl.subplot(0, 0)
-    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]))
+    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]), scalar_bar_args={'title': 'Segmentation'})
     pl.camera_position = get_camera_positions('left')
     pl.camera.view_angle = 27.0
 
+    if ((vmin == None) or (vmax == None))==False:
+            pl.update_scalar_bar_range([vmin, vmax], name='Segmentation')
+
     pl.subplot(0, 1)
-    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]))
+    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]), scalar_bar_args={'title': 'Segmentation '})
     pl.camera_position = get_camera_positions('right')
     pl.camera.view_angle = 27.0
 
+    if ((vmin == None) or (vmax == None))==False:
+            pl.update_scalar_bar_range([vmin, vmax], name='Segmentation ')
 
     pl.subplot(0, 2)
-    actor = pl.add_mesh(brain_model)
+    actor = pl.add_mesh(brain_model, scalar_bar_args={'title': 'Segmentation  '})
     pl.camera_position = get_camera_positions('top')
     pl.camera.view_angle = 23.0
 
     if ((vmin == None) or (vmax == None))==False:
-        pl.update_scalar_bar_range([vmin, vmax])
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation  ')
 
     if interactive==True:
         pl.show()
@@ -545,28 +550,39 @@ def plot_left_right_medial_brain_atlas_models(brain_model, brain_model_left, bra
     pv.global_theme.font.color = 'black'
 
     pl.subplot(0, 0)
-    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]))
-    pl.camera_position = get_camera_positions('left')
-    pl.camera.view_angle = 27.0
-
-    pl.subplot(0, 1)
-    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]))
-    pl.camera_position = get_camera_positions('right')
-    pl.camera.view_angle = 27.0
-
-
-    pl.subplot(1, 0)
-    actor = pl.add_mesh(shift_model(brain_model_left, [0,25,0]))
-    pl.camera_position = get_camera_positions('right')
-    pl.camera.view_angle = 27.0
-
-    pl.subplot(1, 1)
-    actor = pl.add_mesh(shift_model(brain_model_right,[0,25,0]))
+    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]), scalar_bar_args={'title': 'Segmentation'})
     pl.camera_position = get_camera_positions('left')
     pl.camera.view_angle = 27.0
 
     if ((vmin == None) or (vmax == None))==False:
-        pl.update_scalar_bar_range([vmin, vmax])
+            pl.update_scalar_bar_range([vmin, vmax], name='Segmentation')
+
+
+    pl.subplot(0, 1)
+    actor = pl.add_mesh(shift_model(brain_model,[0,25,0]), scalar_bar_args={'title': 'Segmentation '})
+    pl.camera_position = get_camera_positions('right')
+    pl.camera.view_angle = 27.0
+
+    if ((vmin == None) or (vmax == None))==False:
+            pl.update_scalar_bar_range([vmin, vmax], name='Segmentation ')
+
+
+    pl.subplot(1, 0)
+    actor = pl.add_mesh(shift_model(brain_model_left, [0,25,0]), scalar_bar_args={'title': 'Segmentation  '})
+    pl.camera_position = get_camera_positions('right')
+    pl.camera.view_angle = 27.0
+
+    if ((vmin == None) or (vmax == None))==False:
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation  ')
+
+
+    pl.subplot(1, 1)
+    actor = pl.add_mesh(shift_model(brain_model_right,[0,25,0]), scalar_bar_args={'title': 'Segmentation   '})
+    pl.camera_position = get_camera_positions('left')
+    pl.camera.view_angle = 27.0
+
+    if ((vmin == None) or (vmax == None))==False:
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation   ')
 
     if interactive==True:
         pl.show()
@@ -608,23 +624,30 @@ def plot_left_right_top_subcortex_model(brain_model, cmap=None, vmin=None, vmax=
     pv.global_theme.font.color = 'black'
 
     pl.subplot(0, 0)
-    actor = pl.add_mesh(shift_model(brain_model,[0,15,10]))
+    actor = pl.add_mesh(shift_model(brain_model,[0,15,10]), scalar_bar_args={'title': 'Segmentation'})
     pl.camera_position = get_camera_positions('left')
     pl.camera.view_angle = 15.0
 
+    if ((vmin == None) or (vmax == None))==False:
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation')
+
+
     pl.subplot(0, 1)
-    actor = pl.add_mesh(shift_model(brain_model,[0,15,10]))
+    actor = pl.add_mesh(shift_model(brain_model,[0,15,10]), scalar_bar_args={'title': 'Segmentation '})
     pl.camera_position = get_camera_positions('right')
     pl.camera.view_angle = 15.0
 
+    if ((vmin == None) or (vmax == None))==False:
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation ')
+
 
     pl.subplot(0, 2)
-    actor = pl.add_mesh(brain_model)
+    actor = pl.add_mesh(brain_model, scalar_bar_args={'title': 'Segmentation  '})
     pl.camera_position = get_camera_positions('top')
     pl.camera.view_angle = 15.0
 
     if ((vmin == None) or (vmax == None))==False:
-        pl.update_scalar_bar_range([vmin, vmax])
+        pl.update_scalar_bar_range([vmin, vmax], name='Segmentation  ')
 
     if interactive==True:
         pl.show()
